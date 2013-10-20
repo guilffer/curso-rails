@@ -7,15 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div>
-    <% if user_signed_in? %>
-      Olá, <%= current_user.email %>!
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    <% else %>
-      <%= link_to('Login', new_user_session_path)  %>
-    <% end %>
-  </div>
-<%= yield %>
-
+  <header>
+    <h1><%= link_to('Nome do seu blog', root_path) %></h1>
+    <nav>
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to('Novo Post', new_post_path)  %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <% else %>
+          <li><%= link_to('Login', new_user_session_path)  %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+  <aside>
+    <%= yield %>
+  </aside>
 </body>
 </html>

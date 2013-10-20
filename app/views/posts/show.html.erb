@@ -1,18 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <%= image_tag @post.picture_url %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<article>
+  <h2><%= @post.title %></h2>
+  <div class="content"><%= link_to(image_tag(@post.picture.thumb.url), @post.picture_url) %><%= @post.content %></div>
+</article>
